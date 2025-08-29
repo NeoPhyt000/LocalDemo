@@ -1,3 +1,72 @@
-p {
-    color: red;
+.navbar {
+    width: 100%;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px;
+    border-color: aqua;
+    border-radius: 5px;
+    border-width: 2px;
+    word-spacing: 20px;
 }
+
+ul {
+    list-style:  none;
+}
+
+ol {
+    list-style: disc;
+}
+
+p {
+    color: blue;
+    font-weight: 24px;
+    font-style: oblique ;
+    transform: rotate(90deg);
+    
+}
+
+.order-btn {
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  font: 600 18px/1 system-ui, sans-serif;
+  color: #fff;                    /* ডিফল্ট টেক্সট সাদা */
+  background-color: #16a34a;      /* ডিফল্ট সবুজ ব্যাকগ্রাউন্ড */
+  border: 2px solid #16a34a;      /* সবুজ বর্ডার */
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;               /* ওভারলে যেন বর্ডারের বাইরে না যায় */
+  transition: color .35s ease;
+  z-index: 0;                     /* স্ট্যাকিং কনটেক্সট */
+}
+
+/* সাদা ওভারলে: মাঝখান (50%) থেকে দুইদিকে ছড়াবে */
+.order-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;                       /* শুরুতে দৃশ্যমান নয় */
+  transform: translateX(-50%);    /* একদম মাঝখানকে অরিজিন ধরা */
+  background: #fff;               /* হোভার হলে যে রঙ দেখাবে */
+  transition: width .45s ease;    /* মাঝখান থেকে দুই পাশে বাড়বে */
+  z-index: 1;                     /* বেস সবুজের উপরে থাকবে */
+}
+
+/* টেক্সটকে ওভারলের উপরে রাখি */
+.order-btn > span {
+  position: relative;
+  z-index: 2;
+}
+
+/* হোভার ইফেক্ট */
+.order-btn:hover {
+  color: #16a34a;                 /* টেক্সট সবুজ */
+}
+
+.order-btn:hover::before {
+  width: 100%;                    /* সাদা ওভারলে পুরো বাটন ঢেকে দেবে */
+}
+
+
