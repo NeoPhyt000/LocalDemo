@@ -40,33 +40,13 @@ p {
   z-index: 0;                     /* স্ট্যাকিং কনটেক্সট */
 }
 
-/* সাদা ওভারলে: মাঝখান (50%) থেকে দুইদিকে ছড়াবে */
-.order-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 100%;
-  width: 0;                       /* শুরুতে দৃশ্যমান নয় */
-  transform: translateX(-50%);    /* একদম মাঝখানকে অরিজিন ধরা */
-  background: #fff;               /* হোভার হলে যে রঙ দেখাবে */
-  transition: width .45s ease;    /* মাঝখান থেকে দুই পাশে বাড়বে */
-  z-index: 1;                     /* বেস সবুজের উপরে থাকবে */
-}
 
-/* টেক্সটকে ওভারলের উপরে রাখি */
-.order-btn > span {
-  position: relative;
-  z-index: 2;
-}
 
 /* হোভার ইফেক্ট */
 .order-btn:hover {
-  color: #16a34a;                 /* টেক্সট সবুজ */
+  color: #16a34a;    
+  transition: ease-out;             /* টেক্সট সবুজ */
 }
 
-.order-btn:hover::before {
-  width: 100%;                    /* সাদা ওভারলে পুরো বাটন ঢেকে দেবে */
-}
 
 
